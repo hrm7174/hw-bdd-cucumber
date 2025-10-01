@@ -28,4 +28,6 @@ Feature: display list of movies filtered by MPAA rating
     Then I should see only the movies rated: PG, R
 
   Scenario: all ratings selected
+    When I check the following ratings: G, PG, PG-13, R
+    And I press "ratings_submit"
     Then I should see all the movies
