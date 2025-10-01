@@ -56,7 +56,7 @@ Then(/^I should see only the movies rated: (.+)$/) do |ratings|
 end
 
 Then(/^I should see all the movies$/) do
-  Movie.pluck(:title).each do |t|
-    expect(page).to have_content(t)
+    rows = page.all('table#movies tbody tr').count
+    expect(rows).to eq(Movie.count)
   end
 end
